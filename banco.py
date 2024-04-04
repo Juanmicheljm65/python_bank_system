@@ -17,10 +17,13 @@ while True :
     
     if opcao == '1' :
         deposito = float(input('\nInforme o valor que deseja depositar: '))
-        saldo += deposito
-        extrato += (f'\nDepositou R${float(deposito):.2f}')
-        print(f'\nSeu deposito de R${float(deposito):.2f} foi concluído. Voltando ao menu...')
-    
+        if deposito > 0 :
+            saldo += deposito
+            extrato += (f'\nDepositou R${float(deposito):.2f}')
+            print(f'\nSeu deposito de R${float(deposito):.2f} foi concluído. \nVoltando ao menu...')
+        else :
+            print(f'\nSeu deposito tem que ser maior que 0. \nVoltando ao menu...')
+        
     elif opcao == '2' :
         if saques  <= LIMITE_DE_SAQUE:
             sacar = float(input(f'\nSeu saldo atual é: R${float(saldo):.2f}. Quanto gostaria de sacar? '))
